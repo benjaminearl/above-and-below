@@ -1,7 +1,6 @@
 {
   "name": "above-and-below",
   "version": "1.0.0",
-  "description": "",
   "main": "imageGenerator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,5 +21,6 @@
     "express": "^4.16.4",
     "moment": "^2.23.0",
     "node-fetch": "^2.3.0"
-  }
+  },
+  "description": ""
 }

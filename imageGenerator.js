@@ -5,7 +5,7 @@ var satID = [41328, 41019, 40730, 40534, 40294, 40105, 39741, 39533, 39166, 3883
 
 var timer = function() {
     async function jsonParse (satellite) {
-        const res = await fetch(`https://www.n2yo.com/rest/v1/satellite/positions/${satID[satellite]}/52.070499/4.300700/0/1/&apiKey=${process.env.NY20}`);
+        const res = await fetch(`https://www.n2yo.com/rest/v1/satellite/positions/${satID[satellite]}/52.070499/4.300700/0/1/&apiKey=`);
         
         const json = await res.json();
         const location = json.positions[0].satlatitude+","+json.positions[0].satlongitude;
@@ -25,7 +25,7 @@ var timer = function() {
         const parsed = JSON.stringify(satInfo);
 
 
-        const meta = await fetch(`https://maps.googleapis.com/maps/api/streetview/metadata?size=600x300&location=${location}&pitch=90&key=${process.env.MAPS}`)
+        const meta = await fetch(`https://maps.googleapis.com/maps/api/streetview/metadata?size=600x300&location=${location}&pitch=90&key=`)
         const metadata = await meta.json();
 
         let foundSats;
@@ -37,9 +37,9 @@ var timer = function() {
             foundSats = location;
             console.log(foundSats);
 
-            const sky = await fetch(`https://maps.googleapis.com/maps/api/streetview?size=600x600&location=${foundSats}&pitch=90&key=${process.env.MAPS}`);
+            const sky = await fetch(`https://maps.googleapis.com/maps/api/streetview?size=600x600&location=${foundSats}&pitch=90&key=`);
             const skyDest = fs.createWriteStream(`sky/${timestamp}.jpg`);
-            const land = await fetch(`https://maps.googleapis.com/maps/api/staticmap?center=${foundSats}&zoom=13&size=600x600&maptype=satellite&key=${process.env.MAPS}`);
+            const land = await fetch(`https://maps.googleapis.com/maps/api/staticmap?center=${foundSats}&zoom=20&size=600x600&maptype=satellite&key=`);
             const landDest = fs.createWriteStream(`land/${timestamp}.jpg`);
 
             sky.body.pipe(skyDest);

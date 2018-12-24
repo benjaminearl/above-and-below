@@ -35,7 +35,6 @@ function getImages(since) {
 
 	return response;
 }
-// getImages();
 app.get('/', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -46,4 +45,4 @@ app.get('/', (req, res) => {
 	res.json(data);
 });
 
-app.listen(3000, () => console.log('Example app listening on port 3000!')); 
+app.listen(3000, () => console.log('Example app listening on port 3000!'));
