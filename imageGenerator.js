@@ -37,9 +37,9 @@ var timer = function() {
             foundSats = location;
             console.log(foundSats);
 
-            const sky = await fetch(`https://maps.googleapis.com/maps/api/streetview?size=600x600&location=${foundSats}&pitch=90&key=`);
+            const sky = await fetch(`https://maps.googleapis.com/maps/api/streetview?size=640x640&location=${foundSats}&pitch=90&key=`);
             const skyDest = fs.createWriteStream(`sky/${timestamp}.jpg`);
-            const land = await fetch(`https://maps.googleapis.com/maps/api/staticmap?center=${foundSats}&zoom=20&size=600x600&maptype=satellite&key=`);
+            const land = await fetch(`https://maps.googleapis.com/maps/api/staticmap?center=${foundSats}&zoom=20&size=640x640&maptype=satellite&key=`);
             const landDest = fs.createWriteStream(`land/${timestamp}.jpg`);
 
             sky.body.pipe(skyDest);
